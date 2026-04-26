@@ -1,0 +1,21 @@
+
+
+If Nz(Me.txtUsername, "") = "" Then
+    MsgBox "Please enter username", vbExclamation, "Required"
+    Exit Sub
+End If
+
+If Nz(Me.txtPassword, "") = "" Then
+    MsgBox "Please enter password", vbExclamation, "Required"
+    Exit Sub
+End If
+
+If Me.txtUsername = "admin" And Me.txtPassword = "1234" Then
+    MsgBox "Login Successful!", vbInformation, "Success"
+    
+    DoCmd.OpenForm "Dashboard"
+    DoCmd.Close acForm, Me.Name
+    
+Else
+   MsgBox "Invalid Username or Password!", vbCritical, "Error"
+End If
